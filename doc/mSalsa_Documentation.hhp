@@ -1,0 +1,103 @@
+[FILES]
+mSalsa.html
+mSalsaHierarchy.html
+mSalsa.Acting.html
+mSalsa.ActingMembers.html
+mSalsa.ActingConstructor.html
+mSalsa.ActingMethods.html
+mSalsa.Acting.act.html
+mSalsa.Action.html
+mSalsa.ActionMembers.html
+mSalsa.ActionConstructor.html
+mSalsa.ActionMethods.html
+mSalsa.Action.execute.html
+mSalsa.Action.sendCommandRequest.html
+mSalsa.Action.sendMessage_overloads.html
+mSalsa.Action.sendMessage_overload_2.html
+mSalsa.Action.sendMessage_overload_1.html
+mSalsa.Action.sendNotificationInfo.html
+mSalsa.Action.sendPresence.html
+mSalsa.Action.sendRequest.html
+mSalsa.Action.sendResponse.html
+mSalsa.Action.setProxyBroker.html
+mSalsa.Agent.html
+mSalsa.AgentMembers.html
+mSalsa.AgentConstructor.html
+mSalsa.AgentFields.html
+mSalsa.Agent.passivePerception.html
+mSalsa.AgentMethods.html
+mSalsa.Agent.activate.html
+mSalsa.Event.html
+mSalsa.EventMembers.html
+mSalsa.EventConstructor.html
+mSalsa.EventProperties.html
+mSalsa.Event.input.html
+mSalsa.Event.type.html
+mSalsa.Event.xml.html
+mSalsa.Input.html
+mSalsa.InputMembers.html
+mSalsa.InputConstructor.html
+mSalsa.InputProperties.html
+mSalsa.Input.data.html
+mSalsa.JabberClient.html
+mSalsa.JabberClientMembers.html
+mSalsa.JabberClientConstructor.html
+mSalsa.JabberClientMethods.html
+mSalsa.JabberClient.setReasoning.html
+mSalsa.Parser.html
+mSalsa.ParserMembers.html
+mSalsa.ParserConstructor.html
+mSalsa.ParserConstructor1.html
+mSalsa.ParserConstructor2.html
+mSalsa.ParserMethods.html
+mSalsa.Parser.getAtt.html
+mSalsa.Parser.getTag.html
+mSalsa.Parser.getType_overload_1.html
+mSalsa.Parser.getType_overload_2.html
+mSalsa.PassivePerception.html
+mSalsa.PassivePerceptionMembers.html
+mSalsa.PassivePerceptionConstructor.html
+mSalsa.PassivePerceptionFields.html
+mSalsa.PassivePerception.reasoning.html
+mSalsa.PassivePerceptionMethods.html
+mSalsa.PassivePerception.perceive.html
+mSalsa.PassivePerception.setReasoning.html
+mSalsa.Reasoning.html
+mSalsa.ReasoningMembers.html
+mSalsa.ReasoningConstructor.html
+mSalsa.ReasoningFields.html
+mSalsa.Reasoning.acting.html
+mSalsa.ReasoningMethods.html
+mSalsa.Reasoning.setActing.html
+mSalsa.Reasoning.think.html
+mSalsa.salsa_event_type.html
+mSalsa.XMLmessage.html
+mSalsa.XMLmessageMembers.html
+mSalsa.XMLmessageConstructor.html
+mSalsa.XMLmessageFields.html
+mSalsa.XMLmessage.msg.html
+mSalsa.XMLpresence.html
+mSalsa.XMLpresenceMembers.html
+mSalsa.XMLpresenceConstructor.html
+mSalsa.XMLpresenceFields.html
+mSalsa.XMLpresence.presence.html
+
+[OPTIONS]
+Title=mSalsa_Documentation
+Auto Index=Yes
+Binary TOC=Yes
+Compatibility=1.1 or later
+Compiled file=mSalsa_Documentation.chm
+Default Window=MsdnHelp
+Default topic=mSalsa.html
+Display compile progress=No
+Error log file=mSalsa_Documentation.log
+Full-text search=Yes
+Index file=mSalsa_Documentation.hhk
+Language=0x409 English (United States)
+Contents file=mSalsa_Documentation.hhc
+
+[WINDOWS]
+MsdnHelp="mSalsa_Documentation Help","mSalsa_Documentation.hhc","mSalsa_Documentation.hhk","mSalsa.html","mSalsa.html",,,,,0x62520,220,0x387e,[86,51,872,558],,,,,,,0
+
+[INFOTYPES]

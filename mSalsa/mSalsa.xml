@@ -1,0 +1,498 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>mSalsa</name>
+    </assembly>
+    <members>
+        <member name="T:mSalsa.Acting">
+            <summary>
+            Acting component of the Agent.
+            </summary>
+        </member>
+        <member name="F:mSalsa.Acting.jc">
+            <summary>
+            Jabber Client instance.
+            </summary>
+        </member>
+        <member name="M:mSalsa.Acting.#ctor(mSalsa.JabberClient)">
+            <summary>
+            Recive the Jabber Client to use it in Action Class
+            </summary>
+            <param name="jClient">Jabber Client Instance</param>
+        </member>
+        <member name="M:mSalsa.Acting.act(mSalsa.Action)">
+            <summary>
+            Execute an action
+            </summary>
+            <param name="action">Action Class Instance</param>
+        </member>
+        <member name="T:mSalsa.Action">
+            <summary>
+            Action of the Agent. 
+            </summary>
+            <remarks>
+            The developer specifies in this class the agent's action or set of actions of the Agent.
+            </remarks>
+        </member>
+        <member name="F:mSalsa.Action.jc">
+            <summary>
+            Jabber Client instance.
+            </summary>
+        </member>
+        <member name="M:mSalsa.Action.#ctor">
+            <summary>
+            Class Action constructor
+            </summary>		
+        </member>
+        <member name="M:mSalsa.Action.execute">
+            <summary>
+            This method is implemented by the developer to specify the action of the Agent
+            </summary>
+        </member>
+        <member name="M:mSalsa.Action.sendRequest(System.String,System.String,System.String,System.String)">
+            <summary>
+            Sends a message to Request information to other Agent.		 		
+            </summary>
+            <param name="to">Instant message address of the other Agent.</param>
+            <param name="body">Simple message.</param>
+            <param name="type">Type of the information to be requested.</param>
+            <param name="param">Set of xml tags specifying other information the the other agent need to retrieved the information requested.</param>		
+        </member>
+        <member name="M:mSalsa.Action.sendResponse(System.String,System.String,System.String,System.String)">
+            <summary>
+            Sends a message that Responds to a Request information of other Agent.
+            </summary>
+            <param name="to">Instant message address of the other Agent.</param>
+            <param name="body">Simple message.</param>
+            <param name="type">Type of the information send to other Agent.</param>
+            <param name="param">Set of xml tags specifying other information the the other agent need to send the information requested.</param>
+        </member>
+        <member name="M:mSalsa.Action.sendNotificationInfo(System.String,System.String,System.String,System.String)">
+            <summary>
+            Sends notification info.
+            </summary>
+            <param name="to">Instant message address of the other Agent.</param>
+            <param name="body">Notification message.</param>
+            <param name="type">Type of the information send to other Agent.</param>
+            <param name="param">Set of xml tags specifying other information the the other agent need to send the notificacion.</param>
+        </member>
+        <member name="M:mSalsa.Action.sendCommandRequest(System.String,System.String,System.String,System.String)">
+            <summary>
+            Sends a message to request to execute a command or action to other Agent.
+            </summary>
+            <param name="to">Instant message address of the other Agent.</param>
+            <param name="body">Simple message.</param>
+            <param name="command">Type of the command or action. It can be the name of the command.</param>
+            <param name="param">Set of xml tags specifying other information the the other agent need to execute the command.</param>
+        </member>
+        <member name="M:mSalsa.Action.sendMessage(System.String,System.String,System.String,System.String)">
+            <summary>
+            Send a message to other Agent.
+            </summary>
+            <remarks>
+            Sends a SALSA message.
+            </remarks>
+            <param name="to">Instant message address of the other Agent.</param>
+            <param name="body">Simple message.</param>
+            <param name="type">Type of message to be sent.</param>
+            <param name="param">Set of xml tags specifying other information of the message.</param>
+        </member>
+        <member name="M:mSalsa.Action.sendMessage(System.String,System.String,System.String)">
+            <summary>
+            Sends a simple message to other Agent.
+            </summary>
+            <remarks>
+            Sends a simple xml message
+            </remarks>
+            <param name="from">Instant message address of this Agent.</param>
+            <param name="to">Instant message address of the other Agent.</param>
+            <param name="body">Simple message.</param>
+        </member>
+        <member name="M:mSalsa.Action.sendPresence(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Sends a presence message.
+            </summary>
+            <param name="status">State of the agent: online, available, ...</param>
+            <param name="nickUser">Name of the agent.</param>
+            <param name="area">Area of the building in which this agent is located.</param>
+            <param name="location">Room or specific place of the area in which this agent is located.</param>
+            <param name="typeOfAgent">Type of agent: user or service.</param>
+        </member>
+        <member name="M:mSalsa.Action.setProxyBroker(mSalsa.JabberClient)">
+            <summary>
+            This method make an instance of the Jabber Client for Class Action.
+            </summary>
+            <param name="jClient">Jabber Client Instance</param>
+        </member>
+        <member name="T:mSalsa.Agent">
+            <summary>
+            mSalsa Agent Class
+            </summary>
+        </member>
+        <member name="F:mSalsa.Agent.jc">
+            <summary>
+            Jabber Client instance.
+            </summary>
+        </member>
+        <member name="F:mSalsa.Agent.acting">
+            <summary>
+            Acting instance.
+            </summary>
+        </member>
+        <member name="F:mSalsa.Agent.reasoning">
+            <summary>
+            Reasoning instance.
+            </summary>
+        </member>
+        <member name="F:mSalsa.Agent.passivePerception">
+            <summary>
+            Passive Perception instance.
+            </summary>
+        </member>
+        <member name="M:mSalsa.Agent.#ctor">
+            <summary>
+            Create an Agent instance.
+            </summary>
+        </member>
+        <member name="M:mSalsa.Agent.activate(mSalsa.Reasoning,mSalsa.JabberClient)">
+            <summary>
+            Create and activate an agent that communicates through instant messaging with other agents
+            </summary>
+            <param name="rsn">Reasoning Class Instance</param>
+            <param name="jClient">Jabber Client Instance</param>
+        </member>
+        <member name="M:mSalsa.Agent.setProxyBroker(mSalsa.JabberClient)">
+            <summary>
+            This method make an instance of the Jabber Client for Class Action.
+            </summary>
+            <param name="jClient">Jabber Client Instance</param>
+        </member>
+        <member name="M:mSalsa.Agent.create(mSalsa.Reasoning)">
+            <summary>
+            Initialize the attributes of the agent and create the components of acting, perception, and reasoning.
+            </summary>
+            <param name="rsn">Reasoning Class Instance</param>
+        </member>
+        <member name="T:mSalsa.salsa_event_type">
+            <summary>
+            Specifies the type of event generated in tha Perception component
+            </summary>
+        </member>
+        <member name="F:mSalsa.salsa_event_type.StateChangeEvent">
+            <summary>
+            State Change event.
+            </summary>
+        </member>
+        <member name="F:mSalsa.salsa_event_type.UserEvent">
+            <summary>
+            User Event.
+            </summary>
+        </member>
+        <member name="F:mSalsa.salsa_event_type.ArriveCommandEvent">
+            <summary>
+            Command Event.
+            </summary>
+        </member>
+        <member name="F:mSalsa.salsa_event_type.ArriveResponseEvent">
+            <summary>
+            Response event.
+            </summary>
+        </member>
+        <member name="F:mSalsa.salsa_event_type.ArriveNotificationInfoEvent">
+            <summary>
+            Notification Info Event.
+            </summary>
+        </member>
+        <member name="F:mSalsa.salsa_event_type.ArriveRequestEvent">
+            <summary>
+            Request Event.
+            </summary>
+        </member>
+        <member name="F:mSalsa.salsa_event_type.ArriveContextualMsgEvent">
+            <summary>
+            contextual Message Event.
+            </summary>
+        </member>
+        <member name="F:mSalsa.salsa_event_type.ArriveComponentEvent">
+            <summary>
+            Component Event.
+            </summary>
+        </member>
+        <member name="F:mSalsa.salsa_event_type.ArriveSimpleMessageEvent">
+            <summary>
+            Simple Message Event.
+            </summary>
+        </member>
+        <member name="F:mSalsa.salsa_event_type.ArrivePresenceEvent">
+            <summary>
+            Presence Event.
+            </summary>
+        </member>
+        <member name="F:mSalsa.salsa_event_type.ArriveSensorDataEvent">
+            <summary>
+            Sensor Data Event.
+            </summary>
+        </member>
+        <member name="T:mSalsa.Event">
+            <summary>
+            Event class.
+            </summary>
+        </member>
+        <member name="M:mSalsa.Event.#ctor(System.String,System.Object)">
+            <summary>
+            Create an Event that wraps the xml message perceived.
+            </summary>
+            <param name="xml">Message perceived through a Client (IM client).</param>
+            <param name="obj">Object in which the event was generated.</param>
+        </member>
+        <member name="P:mSalsa.Event.xml">
+            <summary>
+            Get the XML message.
+            </summary>
+            <value>String XML.</value>
+        </member>
+        <member name="P:mSalsa.Event.type">
+            <summary>
+            Get the type of event.
+            </summary>
+            <value>The type of event.</value>
+        </member>
+        <member name="P:mSalsa.Event.input">
+            <summary>
+            Get the input object.
+            </summary>
+            <value>The input object.</value>
+        </member>
+        <member name="T:mSalsa.Input">
+            <summary>
+            Input Class.
+            </summary>
+        </member>
+        <member name="F:mSalsa.Input.Data">
+            <summary>
+            Received object.
+            </summary>
+        </member>
+        <member name="M:mSalsa.Input.#ctor(System.Object)">
+            <summary>
+            Receives an object as input.
+            </summary>
+            <param name="data">input object.</param>
+        </member>
+        <member name="P:mSalsa.Input.data">
+            <summary>
+            Data value.
+            </summary>
+            <value>The Data Object.</value>
+        </member>
+        <member name="T:mSalsa.JabberClient">
+            <summary>
+            Class to Manage the Jabber Client agsXMPP.
+            </summary>
+        </member>
+        <member name="F:mSalsa.JabberClient.input">
+            <summary>
+            Instance of Input class.
+            </summary>
+        </member>
+        <member name="F:mSalsa.JabberClient.p">
+            <summary>
+            Instance of PassivePerception class.
+            </summary>
+        </member>
+        <member name="M:mSalsa.JabberClient.#ctor(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Connect to the Jabber Server.
+            </summary>
+            <param name="server">Jabber Server.</param>
+            <param name="port">Jabber Server Port.</param>
+            <param name="user">Jabber User.</param>
+            <param name="pass">Jabber User Password.</param>
+        </member>
+        <member name="M:mSalsa.JabberClient.setReasoning(mSalsa.Reasoning)">
+            <summary>
+            Set the reasoning component to the Jabber client.
+            </summary>
+            <param name="rsn">Reasoning component</param>
+        </member>
+        <member name="M:mSalsa.JabberClient.JabberClient_OnReadXml(System.Object,System.String)">
+            <summary>
+            Event generated when receive the XML from the Jabber Server.
+            </summary>
+            <param name="sender">Object sender.</param>
+            <param name="xml">XML received.</param>
+        </member>
+        <member name="M:mSalsa.JabberClient.JabberClient_OnWriteXml(System.Object,System.String)">
+            <summary>
+            Event generated when sends the XML to the Jabber Server.
+            </summary>
+            <param name="sender">Object sender.</param>
+            <param name="xml">XML sent.</param>
+        </member>
+        <member name="M:mSalsa.JabberClient.JabberClient_OnLogin(System.Object)">
+            <summary>
+            Event when Login into the Jabber Sever
+            </summary>
+            <param name="sender">Object sender.</param>
+        </member>
+        <member name="M:mSalsa.JabberClient.JabberClient_OnError(System.Object,System.Exception)">
+            <summary>
+            Event generated when Error.
+            </summary>
+            <param name="sender">Object Sender.</param>
+            <param name="ex">Exception object.</param>
+        </member>
+        <member name="M:mSalsa.JabberClient.JabberClient_OnMessage(System.Object,agsXMPP.protocol.Message)">
+            <summary>
+            Event generated when receive a Jabber message.
+            </summary>
+            <param name="sender">Object sender.</param>
+            <param name="msg">The message.</param>
+        </member>
+        <member name="M:mSalsa.JabberClient.JabberClient_OnPresence(System.Object,agsXMPP.protocol.Presence)">
+            <summary>
+            Event generated when receive a Jabber presence message.
+            </summary>
+            <param name="sender">Object sender.</param>
+            <param name="pres">The presence message.</param>
+        </member>
+        <member name="T:mSalsa.Parser">
+            <summary>
+            Simple XML Parser.
+            </summary>
+        </member>
+        <member name="F:mSalsa.Parser.xml">
+            <summary>
+            The XML document.
+            </summary>
+        </member>
+        <member name="M:mSalsa.Parser.#ctor(System.String)">
+            <summary>
+            Create an instance of the parser.
+            </summary>
+            <param name="xml">The XML document.</param>
+        </member>
+        <member name="M:mSalsa.Parser.getTag(System.String)">
+            <summary>
+            Get the value of some tag.
+            </summary>
+            <param name="element">The XML tag.</param>
+            <returns>The value of the tag.</returns>
+        </member>
+        <member name="M:mSalsa.Parser.getAtt(System.String,System.String)">
+            <summary>
+            Get the attribute of a XML node.
+            </summary>
+            <param name="node">The XML node</param>
+            <param name="att">The attribute to search</param>
+            <returns>The value of the attribute.</returns>
+        </member>
+        <member name="M:mSalsa.Parser.getType">
+            <summary>
+            Get the type of XML Message.
+            </summary>
+            <returns>The type of message in a string.</returns>
+        </member>
+        <member name="M:mSalsa.Parser.#ctor">
+            <summary>
+            Create an instance of the parser.
+            </summary>
+        </member>
+        <member name="M:mSalsa.Parser.getType(System.String,System.String)">
+            <summary>
+            Get the type of XML Message.
+            </summary>		
+            <param name="element">The XML tag.</param>
+            <param name="tag">The XML attribute to search the type.</param>
+            <returns>The type of message in a string.</returns>
+        </member>
+        <member name="T:mSalsa.PassivePerception">
+            <summary>
+            <para>PassivePerception component of the Agent</para>
+            </summary>
+        </member>
+        <member name="F:mSalsa.PassivePerception.reasoning">
+            <summary>
+            Instance of the Reasoning component.
+            </summary>
+        </member>
+        <member name="M:mSalsa.PassivePerception.#ctor">
+            <summary>
+            Links this PassivePerception with an Agent.
+            </summary>
+        </member>
+        <member name="M:mSalsa.PassivePerception.setReasoning(mSalsa.Reasoning)">
+            <summary>
+            Set the reasoning component to the agent.
+            </summary>
+            <param name="rsn">The reasoning component</param>
+        </member>
+        <member name="M:mSalsa.PassivePerception.perceive(mSalsa.Input)">
+            <summary>
+            <para>The PassiveEntityToPerceive will notify the information received by invoking this method.</para>
+            <para>When a SALSA message is perceived, this method will generate a SALSA event and notify it to the reasoning component of the agent.</para>
+            </summary>
+            <param name="input">Wraps the information perceived, which can be an XMLpresence, XMLmessage, or any other kind of object.</param>
+        </member>
+        <member name="T:mSalsa.Reasoning">
+            <summary>
+            Reasoning component of the Agent.
+            </summary>
+        </member>
+        <member name="F:mSalsa.Reasoning.acting">
+            <summary>
+            Acting component
+            </summary>
+        </member>
+        <member name="M:mSalsa.Reasoning.#ctor">
+            <summary>
+            Create the instance  of the reasoning component.
+            </summary>
+        </member>
+        <member name="M:mSalsa.Reasoning.think(mSalsa.salsa_event_type,System.String)">
+            <summary>
+            Overwrite this method to specify the reasoning algorithm.
+            </summary>
+            <param name="ev">Event generated in the perception component which invoks the think method</param>
+            <param name="xml">The XML Jabber message.</param>
+        </member>
+        <member name="M:mSalsa.Reasoning.setActing(mSalsa.Acting)">
+            <summary>
+            Set the Acting component.
+            </summary>
+            <param name="acting">The Acting component.</param>
+        </member>
+        <member name="T:mSalsa.XMLmessage">
+            <summary>
+            Wraps an xml message.
+            </summary>
+        </member>
+        <member name="F:mSalsa.XMLmessage.msg">
+            <summary>
+            Contains a xml message.
+            </summary>
+        </member>
+        <member name="M:mSalsa.XMLmessage.#ctor(System.String)">
+            <summary>
+            Initialize the msg variable.
+            </summary>
+            <param name="msg">An xml message.</param>
+        </member>
+        <member name="T:mSalsa.XMLpresence">
+            <summary>
+            Wraps a presence message.
+            </summary>
+        </member>
+        <member name="F:mSalsa.XMLpresence.presence">
+            <summary>
+            Contains a xml presence.
+            </summary>
+        </member>
+        <member name="M:mSalsa.XMLpresence.#ctor(System.String)">
+            <summary>
+            Initialize the presence variable.
+            </summary>
+            <param name="presence">Presence message.</param>
+        </member>
+    </members>
+</doc>
