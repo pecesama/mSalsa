@@ -1,0 +1,14 @@
+25 de Junio 2005: 1.1 Release
+
+* Minor bug fixes.
+* Added the API documentation.
+* In class Parser, the constructor Parse() is now obsolete use Parser(string xml) instead.
+* In class Parser, the method getType(string element, string tag) is now obsolete use getType() instead.
+* Added the following methods to Action class.
+	- sendPresence(string status, string nickUser, string area, string location, string typeOfAgent)
+	- sendResponse(string to, string body, string type, string param)
+
+
+22 de Junio 2005: 1.0 Release
+
+* First stable version.
